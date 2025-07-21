@@ -10,6 +10,9 @@ public class SaveLoadConfigsService : MonoBehaviour
 
     private void Awake()
     {
+
+
+
         if (Instance == null)
         {
             Instance = this;
@@ -23,12 +26,24 @@ public class SaveLoadConfigsService : MonoBehaviour
             Destroy(gameObject);
     }
 
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            print("Save");
+            SaveAll();
+        }
+    }
+
+
     public void SaveAll()
     {
         PlayerPrefs.SetInt("Balance", _storeConfig.money);
         
         foreach (var stuff in _storeConfig.stuff)
         {
+            print($"{stuff.stuffName} - Buy: {stuff.isBuy}; IsSelected: {stuff.isSelected}");
             PlayerPrefs.SetInt($"{stuff.stuffName}_isBuy", stuff.isBuy ? 1 : 0);
             PlayerPrefs.SetInt($"{stuff.stuffName}_isSelected", stuff.isSelected ? 1 : 0);
         }
@@ -43,6 +58,7 @@ public class SaveLoadConfigsService : MonoBehaviour
 
         foreach (var stuff in _storeConfig.stuff)
         {
+            print($"{stuff.stuffName} - Buy: {stuff.isBuy}; IsSelected: {stuff.isSelected}");
             stuff.isBuy = PlayerPrefs.GetInt($"{stuff.stuffName}_isBuy", stuff.isBuy ? 1 : 0) == 1 ? true : false;
             stuff.isSelected = PlayerPrefs.GetInt($"{stuff.stuffName}_isSelected", stuff.isSelected ? 1 : 0) == 1 ? true : false;
         }

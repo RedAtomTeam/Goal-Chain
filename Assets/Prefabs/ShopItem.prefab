@@ -543,9 +543,11 @@ MonoBehaviour:
   _storeStuff: {fileID: 0}
   _image: {fileID: 4842921102447989891}
   _costText: {fileID: 2393351695486006343}
+  _costBlock: {fileID: 8232873911878153475}
   _isNotBuy: {fileID: 7478048952602042025}
   _isSelected: {fileID: 684890856483497571}
   _isNotSelected: {fileID: 6503293411221068915}
+  _controllers: []
 --- !u!1 &6503293411221068915
 GameObject:
   m_ObjectHideFlags: 0

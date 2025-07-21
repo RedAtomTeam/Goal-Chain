@@ -10,6 +10,7 @@ public class ShopStuffStateController : MonoBehaviour
 
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _costText;
+    [SerializeField] private GameObject _costBlock;
 
     [SerializeField] private GameObject _isNotBuy;
     [SerializeField] private GameObject _isSelected;
@@ -39,6 +40,7 @@ public class ShopStuffStateController : MonoBehaviour
                 _isNotBuy.SetActive(false);
                 _isSelected.SetActive(true);
                 _isNotSelected.SetActive(false);
+                _costBlock.SetActive(false);
             }
             else
             {
@@ -47,6 +49,7 @@ public class ShopStuffStateController : MonoBehaviour
                     _isNotBuy.SetActive(false);
                     _isSelected.SetActive(false);
                     _isNotSelected.SetActive(true);
+                    _costBlock.SetActive(false);    
                 }
                 else
                 {

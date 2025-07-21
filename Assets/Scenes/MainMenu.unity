@@ -1796,7 +1796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2732,6 +2732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 644761015}
   - component: {fileID: 644761016}
+  - component: {fileID: 644761017}
   m_Layer: 5
   m_Name: Slider (1)
   m_TagString: Untagged
@@ -2812,6 +2813,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &644761017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644761014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524b8e69e16d70843a37035fabcbd501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _propertyName: Music
 --- !u!1 &650065173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,7 +3269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3470,6 +3484,7 @@ GameObject:
   - component: {fileID: 843636151}
   - component: {fileID: 843636150}
   - component: {fileID: 843636149}
+  - component: {fileID: 843636152}
   m_Layer: 5
   m_Name: Play_Button
   m_TagString: Untagged
@@ -3541,16 +3556,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 843636152}
+        m_TargetAssemblyTypeName: SceneOpener, Assembly-CSharp
+        m_MethodName: OpenScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &843636150
@@ -3591,6 +3606,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843636147}
   m_CullTransparentMesh: 1
+--- !u!114 &843636152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843636147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cbf38815d90b042a9ce7f43c0f0bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &851104694
 GameObject:
   m_ObjectHideFlags: 0
@@ -5435,8 +5462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca87f987619b0e844ab62948dab2cb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundtracksPropertyName: 
-  _soundEffectsPropertyName: 
+  _soundtracksPropertyName: Music
+  _soundEffectsPropertyName: Effects
   _soundtracksSource: {fileID: 265090883}
   _soundEffectsSource: {fileID: 1951209535}
   _clips: []
@@ -6494,6 +6521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1774830862}
   - component: {fileID: 1774830863}
+  - component: {fileID: 1774830864}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -6574,6 +6602,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1774830864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774830861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a750465c66c8900418f0b3b92e94d3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _propertyName: Effects
 --- !u!1 &1792955118
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d2ab381b0c4dc4bbaf5660dc4fed28, type: 3}
   m_Name: DarkField
   m_EditorClassIdentifier: 
-  stuffName: DefaultField
+  stuffName: Dark Field
   isBuy: 0
   price: 50
   isSelected: 0
