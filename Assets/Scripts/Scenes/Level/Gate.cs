@@ -4,6 +4,7 @@ using UnityEngine;
 public class Gate : MonoBehaviour
 {
     [SerializeField] private string _ballTag;
+    [SerializeField] private AudioClip _gateClip;
 
 
     public event Action ballDetectedEvent;
@@ -12,6 +13,12 @@ public class Gate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(_ballTag))
-            ballDetectedEvent?.Invoke();
+            DetectBall();
+    }
+
+    private void DetectBall()
+    {
+        AudioService.Instance?.PlayEffect(_gateClip);
+        ballDetectedEvent?.Invoke();
     }
 }

@@ -80,7 +80,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 400, y: 160}
+  m_Size: {x: 540, y: 160}
   m_EdgeRadius: 0
 --- !u!114 &5712017146099953338
 MonoBehaviour:
@@ -95,3 +95,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballTag: Ball
+  _gateClip: {fileID: 8300000, guid: a0d2cc7861387e54bb821da0b97a519c, type: 3}

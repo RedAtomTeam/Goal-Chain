@@ -9,6 +9,18 @@ public class Player : MonoBehaviour
 
     public event Action ballDetectedEvent;
 
+    private bool _send;
+
+
+    public void Send()
+    {
+        _send = true;
+    }
+
+    public void AnotherSend()
+    {
+        _send = false;
+    }
 
     private void Awake()
     {
@@ -31,10 +43,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(_ballTag))
+        if (collision.CompareTag(_ballTag) && !_send)
         {
-            //collision.gameObject.SetActive(false);
-
             ballDetectedEvent?.Invoke();
         }
     }

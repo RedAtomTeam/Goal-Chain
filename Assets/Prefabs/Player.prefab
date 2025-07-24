@@ -361,3 +361,4 @@ MonoBehaviour:
   _maxForce: 10000
   _maxDragDistance: 600
   _relaxTime: 2
+  _launchBallClip: {fileID: 8300000, guid: fd9d160ad550f8c4584370210ed66bb3, type: 3}

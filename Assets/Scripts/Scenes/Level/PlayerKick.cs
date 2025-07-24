@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerKick : MonoBehaviour
@@ -6,24 +7,27 @@ public class PlayerKick : MonoBehaviour
     [SerializeField] private KickInterface KickInterface;
 
     [SerializeField] private Player _player;
+    [SerializeField] private List<Player> _anotherPlayers;
 
     [SerializeField] private Ball _ball; // Ссылка на объект мяча
     [SerializeField] private float _maxForce = 20f; // Максимальная сила удара
     [SerializeField] private float _maxDragDistance = 200f; // Максимальное расстояние оттягивания (в пикселях)
 
-    [SerializeField] private float _relaxTime;
+
+    [SerializeField] private AudioClip _launchBallClip;
 
     private Vector2 _touchStartPos;
     private bool _isDragging = false;
 
-    private float _passTime;
+
+    private bool _send;
 
 
     private void OnEnable()
     {
-        _passTime = 0;
         _ball.transform.position = _ballPos.position;
         _ball.Stop();
+        _ball.transform.SetParent(gameObject.transform);
         KickInterface.gameObject.SetActive(true);
     }
 
@@ -34,19 +38,19 @@ public class PlayerKick : MonoBehaviour
 
     private void Update()
     {
-        if (_passTime == 0)
-        {
             HandleTouchInput();
-        }
-        else
-        {
-            _passTime += Time.deltaTime;
-            if (_passTime >= _relaxTime)
-            {
-                _player.gameObject.SetActive(true);
-                gameObject.SetActive(false);
-            }
-        }
+        //if (_passTime == 0)
+        //{
+        //}
+        //else
+        //{
+        //    _passTime += Time.deltaTime;
+        //    if (_passTime >= _relaxTime)
+        //    {
+        //        _player.gameObject.SetActive(true);
+        //        gameObject.SetActive(false);
+        //    }
+        //}
     }
 
     private void HandleTouchInput()
@@ -116,12 +120,17 @@ public class PlayerKick : MonoBehaviour
 
 
         // Запускаем мяч
-        _ball.Kick(worldDirection, force);
 
+        _player.Send();
+        foreach (var player in _anotherPlayers)
+            player.AnotherSend();
+        _player.gameObject.SetActive(true);
+        gameObject.SetActive(false);
+        _ball.Kick(worldDirection, force);
+        AudioService.Instance?.PlayEffect(_launchBallClip);
 
         _isDragging = false;
 
-        _passTime += Time.deltaTime;
         KickInterface.ChangeValue(0);
         KickInterface.gameObject.SetActive(false);
 
