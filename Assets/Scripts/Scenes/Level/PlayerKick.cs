@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerKick : MonoBehaviour
 {
     [SerializeField] private Transform _ballPos;
-    [SerializeField] private KickInterface KickInterface;
+    [SerializeField] private KickInterface _kickInterface;
 
     [SerializeField] private Player _player;
     [SerializeField] private List<Player> _anotherPlayers;
@@ -28,7 +28,7 @@ public class PlayerKick : MonoBehaviour
         _ball.transform.position = _ballPos.position;
         _ball.Stop();
         _ball.transform.SetParent(gameObject.transform);
-        KickInterface.gameObject.SetActive(true);
+        _kickInterface.gameObject.SetActive(true);
     }
 
     private void OnDisable()
@@ -80,6 +80,7 @@ public class PlayerKick : MonoBehaviour
 
     private void StartDrag(Vector2 touchPosition)
     {
+        _kickInterface.ShowArrow();
         _touchStartPos = touchPosition;
         _isDragging = true;
     }
@@ -88,6 +89,7 @@ public class PlayerKick : MonoBehaviour
     {
         if (!_isDragging) return;
 
+        
         Vector2 dragVector = _touchStartPos - touchPosition;
         float dragDistance = dragVector.magnitude;
 
@@ -96,7 +98,8 @@ public class PlayerKick : MonoBehaviour
         // Рассчитываем силу удара
         float force = normalizedDistance * _maxForce;
 
-        KickInterface.ChangeValue(force/_maxForce);
+        _kickInterface.ChangeValue(force/_maxForce);
+        _kickInterface.UpdateArrow(_ballPos.position, touchPosition);
     }
 
     private void EndDrag(Vector2 touchEndPos)
@@ -131,8 +134,9 @@ public class PlayerKick : MonoBehaviour
 
         _isDragging = false;
 
-        KickInterface.ChangeValue(0);
-        KickInterface.gameObject.SetActive(false);
+        _kickInterface.ChangeValue(0);
+        _kickInterface.gameObject.SetActive(false);
+        _kickInterface.HideArrow();
 
 
 
