@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf33e08a46a6047408a9731764e6d4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelConfig: {fileID: 11400000, guid: f5f36f3455d034c43931290f8f1e5aba, type: 2}
+  _levelConfig: {fileID: 11400000, guid: 5ec2a53206466c04c89a2a1aefac538e, type: 2}
   _allLevelsConfig: {fileID: 11400000, guid: 137e95d3500e181409678fe888c2358e, type: 2}
   _storeConfig: {fileID: 11400000, guid: da83ae0ee203aa948868cdafee72b1bf, type: 2}
   _winWindow: {fileID: 889376015}
@@ -3771,10 +3771,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6028167770741211115, guid: d947ad4e12a6afd4797dd3cbfca6b91a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7026380840174226929, guid: d947ad4e12a6afd4797dd3cbfca6b91a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4610,10 +4606,6 @@ PrefabInstance:
     - target: {fileID: 6456497360371656646, guid: ed3eaa01941ee204ebdd0ffa2e1b5b89, type: 3}
       propertyPath: m_Name
       value: EnemySide
-      objectReference: {fileID: 0}
-    - target: {fileID: 6456497360371656646, guid: ed3eaa01941ee204ebdd0ffa2e1b5b89, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

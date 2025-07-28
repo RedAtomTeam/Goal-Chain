@@ -32,7 +32,7 @@ public class LevelController : MonoBehaviour
     {
         _storeConfig.money += 20;
         _storeConfig.PerformUpdateBalance();
-        SaveLoadConfigsService.Instance.SaveAll();
+        SaveLoadConfigsService.Instance?.SaveAll();
         Time.timeScale = 0f;
         _winWindow.SetActive(true);
     }
@@ -41,7 +41,7 @@ public class LevelController : MonoBehaviour
     {
         _storeConfig.money += 5;
         _storeConfig.PerformUpdateBalance();
-        SaveLoadConfigsService.Instance.SaveAll();
+        SaveLoadConfigsService.Instance?.SaveAll();
         Time.timeScale = 0f;
         _loseWindow.SetActive(true);
     }

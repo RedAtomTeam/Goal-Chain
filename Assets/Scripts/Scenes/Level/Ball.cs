@@ -18,6 +18,11 @@ public class Ball : MonoBehaviour
     private RectTransform _transform;
     private bool _isUnderPlayer = false;
 
+    public bool IsUnderPlayer
+    {
+        get { return _isUnderPlayer; }
+    }
+
 
     private void OnEnable()
     {
