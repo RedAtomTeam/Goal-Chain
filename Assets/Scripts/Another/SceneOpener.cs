@@ -7,6 +7,7 @@ public class SceneOpener : MonoBehaviour
     public void OpenScene(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName);
+        Time.timeScale = 1.0f;
     }
 
 }

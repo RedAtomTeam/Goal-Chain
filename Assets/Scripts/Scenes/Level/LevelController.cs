@@ -32,6 +32,9 @@ public class LevelController : MonoBehaviour
     {
         _storeConfig.money += 20;
         _storeConfig.PerformUpdateBalance();
+        _levelConfig.status = true;
+        if (_levelConfig.level != _allLevelsConfig.levels[_allLevelsConfig.levels.Count-1].level)
+            _allLevelsConfig.levels.Where((e) => e.level == _levelConfig.level + 1).ToArray()[0].status = true;
         SaveLoadConfigsService.Instance?.SaveAll();
         Time.timeScale = 0f;
         _winWindow.SetActive(true);
