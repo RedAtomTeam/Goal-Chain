@@ -90,7 +90,7 @@ public class PlayerKick : MonoBehaviour
         if (!_isDragging) return;
 
         
-        Vector2 dragVector = _touchStartPos - touchPosition;
+        Vector2 dragVector = new Vector2(_ballPos.position.x, _ballPos.position.y) - touchPosition;
         float dragDistance = dragVector.magnitude;
 
         float normalizedDistance = Mathf.Clamp01(dragDistance / _maxDragDistance);

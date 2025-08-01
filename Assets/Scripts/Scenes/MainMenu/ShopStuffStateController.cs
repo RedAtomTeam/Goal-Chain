@@ -23,12 +23,18 @@ public class ShopStuffStateController : MonoBehaviour
     {
         _costText.text = _storeStuff.price.ToString();
         _image.sprite = _storeStuff._sprite;
-        _storeConfig._storeUpdateStatesEvent += UpdateState;   
+         
     }
 
     private void OnEnable()
     {
         UpdateState();
+        _storeConfig._storeUpdateStatesEvent += UpdateState;
+    }
+
+    private void OnDisable()
+    {
+        _storeConfig._storeUpdateStatesEvent -= UpdateState;
     }
 
     private void UpdateState()
@@ -46,7 +52,15 @@ public class ShopStuffStateController : MonoBehaviour
             {
                 if (_storeStuff.isBuy)
                 {
-                    _isNotBuy.SetActive(false);
+                    try
+                    {
+                        _isNotBuy.SetActive(false);
+                    }
+                    catch
+                    {
+                        print(gameObject.name);
+                    }
+                
                     _isSelected.SetActive(false);
                     _isNotSelected.SetActive(true);
                     _costBlock.SetActive(false);    

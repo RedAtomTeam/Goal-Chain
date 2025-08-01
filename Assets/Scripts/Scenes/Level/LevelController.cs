@@ -18,6 +18,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] private List<Enemy> _enemies;
     [SerializeField] private Gate _gate;
 
+    private bool _isWin = false;
+    private bool _isLose = false;
 
     private void Awake()
     {
@@ -30,23 +32,31 @@ public class LevelController : MonoBehaviour
 
     private void Win()
     {
-        _storeConfig.money += 20;
-        _storeConfig.PerformUpdateBalance();
-        _levelConfig.status = true;
-        if (_levelConfig.level != _allLevelsConfig.levels[_allLevelsConfig.levels.Count-1].level)
-            _allLevelsConfig.levels.Where((e) => e.level == _levelConfig.level + 1).ToArray()[0].status = true;
-        SaveLoadConfigsService.Instance?.SaveAll();
-        Time.timeScale = 0f;
-        _winWindow.SetActive(true);
+        if (!_isLose)
+        {
+            _isWin = true;
+            _storeConfig.money += 20;
+            _storeConfig.PerformUpdateBalance();
+            _levelConfig.status = true;
+            if (_levelConfig.level != _allLevelsConfig.levels[_allLevelsConfig.levels.Count - 1].level)
+                _allLevelsConfig.levels.Where((e) => e.level == _levelConfig.level + 1).ToArray()[0].status = true;
+            SaveLoadConfigsService.Instance?.SaveAll();
+            Time.timeScale = 0f;
+            _winWindow.SetActive(true);
+        }
     }
 
     private void Lose()
     {
-        _storeConfig.money += 5;
-        _storeConfig.PerformUpdateBalance();
-        SaveLoadConfigsService.Instance?.SaveAll();
-        Time.timeScale = 0f;
-        _loseWindow.SetActive(true);
+        if (!_isWin)
+        {
+            _isLose = true;
+            _storeConfig.money += 5;
+            _storeConfig.PerformUpdateBalance();
+            SaveLoadConfigsService.Instance?.SaveAll();
+            Time.timeScale = 0f;
+            _loseWindow.SetActive(true);
+        }
     }
 
     public void Retry()
