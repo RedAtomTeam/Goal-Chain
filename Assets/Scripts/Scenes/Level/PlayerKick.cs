@@ -123,7 +123,6 @@ public class PlayerKick : MonoBehaviour
 
 
         // Запускаем мяч
-
         _player.Send();
         foreach (var player in _anotherPlayers)
             player.AnotherSend();
