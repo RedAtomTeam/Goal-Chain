@@ -113,6 +113,8 @@ public class PlayerKick : MonoBehaviour
 
         // Рассчитываем силу удара
         float force = normalizedDistance * _maxForce;
+        
+        force = force > _maxForce/2 ? force : _maxForce/2;
 
         // Нормализуем вектор направления
         Vector2 direction = dragVector.normalized;

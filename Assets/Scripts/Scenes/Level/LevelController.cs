@@ -18,6 +18,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private List<Enemy> _enemies;
     [SerializeField] private Gate _gate;
 
+
     private bool _isWin = false;
     private bool _isLose = false;
 
